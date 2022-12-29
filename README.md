@@ -24,7 +24,7 @@ https://upload.wikimedia.org/wikipedia/commons/2/23/Deadlock_at_a_four-way-stop.
 
 
 Detailed explanation: 
-https://www.avanderlee.com/swift/race-condition-vs-data-race/#:~:text=A%20race%20condition%20occurs%20when,of%20a%20piece%20of%20code.&text=A%20data%20race%20occurs%20when,thread%20is%20writing%20to%20it.
+https://ckk.ai/datarace
 
 
 6. Helgrind (Tool to check datarace)
@@ -46,6 +46,6 @@ https://upload.wikimedia.org/wikipedia/commons/2/23/Deadlock_at_a_four-way-stop.
 
 Sources:
 
-1.https://miro.medium.com/max/1200/1*WYw1_AHCq3A4RM5Dh01usg.gif
+1.https://ckk.ai/miro
 2.https://en.wikipedia.org/wiki/Dining_philosophers_problem
 3.
