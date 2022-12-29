@@ -47,5 +47,6 @@ https://upload.wikimedia.org/wikipedia/commons/2/23/Deadlock_at_a_four-way-stop.
 Sources:
 
 1.https://ckk.ai/miro
+
 2.https://en.wikipedia.org/wiki/Dining_philosophers_problem
 3.
