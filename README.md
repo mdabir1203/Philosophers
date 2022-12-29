@@ -12,7 +12,7 @@
 3. Building Multithreaded applications and designing distributed systems
 4. Avoiding Deadlocks(So all don't eat at the same time)
 
-https://upload.wikimedia.org/wikipedia/commons/2/23/Deadlock_at_a_four-way-stop.gif
+![Deadlock_at_a_four-way-stop](https://user-images.githubusercontent.com/66947064/209935144-c60c9ba8-5876-4a3a-837d-6bb345647a4e.gif)
 
 5. Race Conditions and Data Race
 
@@ -29,7 +29,8 @@ https://ckk.ai/datarace
 
 6. Helgrind (Tool to check datarace)
 
-https://upload.wikimedia.org/wikipedia/commons/2/23/Deadlock_at_a_four-way-stop.gif
+
+
 
 6. Avoiding Resource starvation.
 
