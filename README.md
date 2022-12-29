@@ -2,7 +2,7 @@
 
 ##The Dining Philosophers problem is a classic concurrency problem that illustrates the challenges of coordinating the actions of multiple threads or processes that share a common resource.
 
-<img width="450" ![Philo Visualize](https://user-images.githubusercontent.com/66947064/209930372-c8fec921-4502-4632-97ed-0ca6ec4bbad5.gif)
+![Philo Visualize](https://user-images.githubusercontent.com/66947064/209930372-c8fec921-4502-4632-97ed-0ca6ec4bbad5.gif | width 500)
 
 
 ##Learning Outcomes:
