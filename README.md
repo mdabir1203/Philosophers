@@ -18,7 +18,7 @@ https://upload.wikimedia.org/wikipedia/commons/2/23/Deadlock_at_a_four-way-stop.
 
 <img width="450" alt="image" src="https://user-images.githubusercontent.com/66947064/209933249-65fbaa48-da7c-41c3-addb-d9614ae496b1.png">
 
-<p>------------------------------- Data Race --------------------------------</p>
+<p>------------------------------- #Data Race --------------------------------</p>
 
 <img width="450" alt="image" src="https://user-images.githubusercontent.com/66947064/209933187-3b843c61-ab69-42db-9afe-6a935e017779.png">
 
