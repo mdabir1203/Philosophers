@@ -18,6 +18,16 @@
 
 <img width="450" alt="image" src="https://user-images.githubusercontent.com/66947064/209933249-65fbaa48-da7c-41c3-addb-d9614ae496b1.png">
 
+Live Coding Demonstration Example:
+
+<img width="565" alt="image" src="https://user-images.githubusercontent.com/66947064/210025526-0570d3e3-7f1d-4618-9d79-3a6f5cf69cbb.png">
+Output : 
+Its different everytime.  This is not thread safe . Two threads are racing or who gets first.
+
+<img width="730" alt="image" src="https://user-images.githubusercontent.com/66947064/210025562-4351d5c9-dc7c-4d43-8f90-94b8b95bf3b0.png">
+
+
+
 <p>----------- Data Race ---------------</p>
 
 <img width="450" alt="image" src="https://user-images.githubusercontent.com/66947064/209933187-3b843c61-ab69-42db-9afe-6a935e017779.png">
