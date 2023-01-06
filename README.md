@@ -12,7 +12,26 @@
 3. Building Multithreaded applications and designing distributed systems
 4. Avoiding Deadlocks(So all don't eat at the same time)
 
+-->>  a process or thread enters a waiting state because a requested system resource is held by another waiting process, which in turn is waiting for another resource held by another waiting process
+
+**Mutual Exclusions 
+**Hold and Wait
+**No Preemptions
+**Circular Wait
+
 ![Deadlock_at_a_four-way-stop](https://user-images.githubusercontent.com/66947064/209935144-c60c9ba8-5876-4a3a-837d-6bb345647a4e.gif)
+
+
+
+
+
+
+
+
+
+
+
+
 
 5. Race Conditions and Data Race
 
