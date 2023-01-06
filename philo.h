@@ -6,19 +6,19 @@
 /*   By: mabbas <mabbas@students.42wolfsburg.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 09:36:13 by mabbas            #+#    #+#             */
-/*   Updated: 2023/01/06 02:45:45 by mabbas           ###   ########.fr       */
+/*   Updated: 2023/01/06 02:47:41 by mabbas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PHILO_H
 # define PHILO_H
 
-#include <sys/time.h>
-#include <stdlib.h>
-#include <pthread.h>
-#include <semaphore.h>
-#include <unistd.h>
-#include <stdio.h>
+# include <sys/time.h>
+# include <stdlib.h>
+# include <pthread.h>
+# include <semaphore.h>
+# include <unistd.h>
+# include <stdio.h>
 
 struct	s_args;
 
@@ -59,7 +59,7 @@ typedef struct s_args
 }	t_args;
 
 void	forks_taken(t_philo *philo);
-void    eat(t_philo *philo);
+void	eat(t_philo *philo);
 void	sleep(t_philo *philo);
 void	think(t_philo *philo);
 long	ft_time(void);
