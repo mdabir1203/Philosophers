@@ -6,7 +6,7 @@
 #    By: mabbas <mabbas@students.42wolfsburg.de>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/10 03:54:34 by mabbas            #+#    #+#              #
-#    Updated: 2023/02/10 09:43:57 by mabbas           ###   ########.fr        #
+#    Updated: 2023/02/10 09:47:28 by mabbas           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ PROG =  philo
 # PROG_B  = philo_bonus
 
 SRCS = 	srcs/destroy.c \
-		srcs/initialization.c
+		srcs/initialization.c \
 		srcs/utils.c \
 		srcs/routines.c \
 		srcs/time_check.c \
