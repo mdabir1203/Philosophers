@@ -6,7 +6,7 @@
 /*   By: mabbas <mabbas@students.42wolfsburg.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 03:32:19 by mabbas            #+#    #+#             */
-/*   Updated: 2023/02/10 03:48:56 by mabbas           ###   ########.fr       */
+/*   Updated: 2023/02/10 03:54:20 by mabbas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ void	check_philo(t_philo *philo, t_sims *sims)
 		usleep(1);
 }
 
-/** Philos Roundabouts **/
+/** Philos Roundabouts
+ * --> Runs in a separate thread **/
 
 void	*ft_routine(void *argv)
 {
@@ -34,7 +35,7 @@ void	*ft_routine(void *argv)
 
 	philo = (t_philo *)argv;
 	sims = philo->sims;
-	check_philo(philo->sims);
+	check_philo(philo, sims);
 	if (sims->num_of_philo == 1)
 	{
 		ft_sleep_time_given(sims->time_to_die);
