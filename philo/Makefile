@@ -6,7 +6,7 @@
 #    By: mabbas <mabbas@students.42wolfsburg.de>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/10 03:54:34 by mabbas            #+#    #+#              #
-#    Updated: 2023/02/10 09:41:22 by mabbas           ###   ########.fr        #
+#    Updated: 2023/02/10 09:43:57 by mabbas           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,8 +23,20 @@ SRCS = 	srcs/destroy.c \
 		srcs/init_checker.c \
 		srcs/destroy.c \
 		srcs/philosophers.c
-
-		  
+### ....................... ####		
+RED		=	\033[1;31m
+BLUE	=	\033[1;34m
+YELLOW	=	\033[1;33m
+GRN		=	\033[32m
+GRN_B	=	\033[1;32m
+WHT		=	\x1B[37m
+PUPURE	=	\033[1;35m
+MAG		=	\x1B[35m
+GRY		=	\033[1;30m
+TURQUOISE =	\033[36;1m
+END		=	\033[0m
+### ....................... ###
+	  
 OBJS =  ${SRCS:.c=.o}
 MAIN =  srcs/main.c
 # SRCS_B	= srcs/pipex_bonus.c srcs/utils.c srcs/utils_bonus.c
