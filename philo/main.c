@@ -6,7 +6,7 @@
 /*   By: mabbas <mabbas@students.42wolfsburg.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 21:30:26 by mabbas            #+#    #+#             */
-/*   Updated: 2023/02/09 21:36:16 by mabbas           ###   ########.fr       */
+/*   Updated: 2023/02/10 03:31:02 by mabbas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,5 @@ int	main(int argc, char **argv[])
 	sims = malloc(sizeof(sims) * 1);
 	if (ft_init(argv, argc, sims))
 		return (-1);
-	ft_checkEnd(sims);
+	ft_check_end(sims);
 }
