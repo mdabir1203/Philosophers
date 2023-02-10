@@ -6,36 +6,49 @@
 /*   By: mabbas <mabbas@students.42wolfsburg.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 19:36:46 by mabbas            #+#    #+#             */
-/*   Updated: 2023/02/09 19:37:51 by mabbas           ###   ########.fr       */
+/*   Updated: 2023/02/10 03:11:29 by mabbas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/philo.h"
 
-void	ft_free_all(t_sims *simulation, t_philo *philo)
+/** Used to wait for threads to finish execution. **/
+
+void	ft_join_thread(size_t n, t_sims *sims)
 {
-	free(philo);
-	free(simulation->forks);
-	free(simulation->threads);
-	free(simulation->death);
-	free(simulation->display);
-	free(simulation->stop);
+	size_t	i;
+
+	i = 0;
+	while (i <= n)
+	{
+		pthread_join(sims->philo[n].thread, NULL);
+		i++;
+	}
 }
 
-void	ft_destrol_all(t_sims *simulation, t_philo *philo)
+/** Used to cleanup resources that were 
+ *  acquired during simulation and avoid
+ *  resource leaks / data races **/
+void	ft_destrol_all(size_t n, t_sims *sims)
 {
 	int	i;
 
 	i = 0;
-	pthread_mutex_destroy(simulation->death);
-	pthread_mutex_destroy(simulation->display);
-	pthread_mutex_destroy(simulation->stop);
-	while (i < simulation->philo_nbrs)
+	while (i <= n)
 	{
-		pthread_mutex_destroy(simulation->forks + i);
-		pthread_mutex_destroy(philo[i].eat);
-		free(philo[i].eat);
+		pthread_detach(sims->philo[n].thread);
+		pthread_mutex_destroy(&sims->forks[n]);
 		i++;
 	}
-	ft_free_all(simulation, philo);
+	pthread_mutex_destroy(&sims->display);
+}
+
+/** double check to prevent undefined behaviour
+ *  and potential bugs **/
+
+void	ft_check_end(t_sims *sims)
+{
+	ft_join_thread(sims->num_of_philo, sims);
+	ft_destrol_all(sims->num_of_philo, sims);
+	free(sims);
 }
