@@ -6,7 +6,7 @@
 /*   By: mabbas <mabbas@students.42wolfsburg.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 09:36:13 by mabbas            #+#    #+#             */
-/*   Updated: 2023/02/10 03:45:35 by mabbas           ###   ########.fr       */
+/*   Updated: 2023/02/10 18:20:08 by mabbas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,20 @@ typedef enum e_STATSCODE
 
 
 
-typedef size_t	(*t_init_func[4])(t_sims *);
-/** simulating properties of philosophers **/
+/** Philosophers table counting **/
+typedef struct s_philo
+{
+	pthread_t			thread;
+	size_t				left_hand;
+	size_t				right_hand;
+	// pthread_mutex_t		philo_lock;
+	size_t				count;
+	size_t				last_meal;
+	size_t				meal_count;
+	struct s_sims		*sims;
+}	t_philo;
+
+/** simulating properties of philosophers */
 typedef struct s_sims
 {
 	pthread_mutex_t		forks[200];
@@ -72,23 +84,10 @@ typedef struct s_sims
 	bool				logs_philo;
 }				t_sims;
 
-/** Philosophers table counting **/
-typedef struct s_philo
-{
-	pthread_t			thread;
-	size_t				left_hand;
-	size_t				right_hand;
-	// pthread_mutex_t		philo_lock;
-	size_t				count;
-	size_t				last_meal;
-	size_t				meal_count;
-	struct s_sims		*sims;
-}	t_philo;
-
 size_t			ft_get_time(void);
 void			ft_meal(t_philo *philo);
 void			*ft_routine(void *argv);
-size_t			ft_atoi(const char str);
+size_t			ft_atoi(const char *str);
 size_t			ft_init(char *argv[], size_t argc, t_sims *sims);
 
 /** checking for stats of philos **/

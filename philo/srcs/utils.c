@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utilities.c                                        :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mabbas <mabbas@students.42wolfsburg.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 01:55:38 by mabbas            #+#    #+#             */
-/*   Updated: 2023/02/10 03:14:03 by mabbas           ###   ########.fr       */
+/*   Updated: 2023/02/10 18:12:41 by mabbas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
+#include "../includes/philo.h"
 
 static	int	check(const char ch)
 {
@@ -64,11 +64,11 @@ static int	convert_to_int(char *substring, int sign)
 
 /** ft_atoi refactored to make things easy
  *  read from bottom to up **/
-int	ft_atoi(const char *str)
+size_t	ft_atoi(const char *str)
 {
-	int		sign;
-	int		result;
-	char	*substring;
+	size_t		sign;
+	size_t		result;
+	char		*substring;
 
 	substring = skip_whitespace(str);
 	sign = get_sign(substring, &substring);

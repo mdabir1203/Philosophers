@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_initialization.c                                :+:      :+:    :+:   */
+/*   initialization.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mabbas <mabbas@students.42wolfsburg.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 14:40:26 by mabbas            #+#    #+#             */
-/*   Updated: 2023/02/10 01:50:25 by mabbas           ###   ########.fr       */
+/*   Updated: 2023/02/10 18:38:07 by mabbas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,11 @@
 
 void	init_philo_vals(t_philo *philo, size_t n, t_sims *sims)
 {
-	sims->philo[n].count = n;
-	sims->philo[n].meal_count = 0;
-	sims->philo[n].left_hand = n;
-	sims->philo[n].right_hand = (n + 1) % sims->num_of_philo;
-	sims->philo[n].sims = sims;
+	philo->count = n;
+	philo->meal_count = 0;
+	philo->left_hand = n;
+	philo->right_hand = (n + 1) % sims->num_of_philo;
+	philo->sims = sims;
 }
 
 void	init_philosophers(size_t n, t_sims *sims)
@@ -62,26 +62,28 @@ size_t	init_philo_thread(size_t n, t_sims *sims)
 	sims->begin = ft_get_time();
 	while (n > 0)
 	{
-		if (pthread_create(&sims->philo[n].thread, NULL, \
+		if (pthread_create(&sims->philo->thread, NULL, \
 			&ft_routine, &sims->philo[n]))
 			return (0);
-		sims->philo[n].last_meal = ft_get_time();
+		sims->philo->last_meal = ft_get_time();
 		n--;
 	}
 	sims->logs_philo = true;
+
+	return (1);
 }
+
+typedef size_t	(*t_init_func[4])(t_sims *);
 
 size_t	ft_init(char *argv[], size_t argc, t_sims *sims)
 {
-	int					i;
-	const t_init_func	f_init_funcs[4] = {
-		check_num_of_philo,
-		check_time_to_die,
-		check_num_of_philo,
-		check_time_to_sleep
-	};
+	size_t	t_init_func[4];
 
-	i = 0;
+	t_init_func[0] = check_num_of_philo;
+	t_init_func[1] = check_time_to_die;
+	t_init_func[2] = check_num_of_philo;
+	t_init_func[3] = check_time_to_sleep;
+
 	sims->num_of_philo = ft_atoi(argv[1]);
 	sims->time_to_die = ft_atoi(argv[2]);
 	sims->time_to_eat = ft_atoi(argv[3]);
@@ -93,7 +95,7 @@ size_t	ft_init(char *argv[], size_t argc, t_sims *sims)
 	if (!init_fork(sims->num_of_philo, sims))
 		return (FORK);
 	init_philosophers(sims->num_of_philo, sims);
-	if (!init_philo(sims->num_of_philo, sims))
+	if (!init_philo_thread(sims->num_of_philo, sims))
 		return (EAT);
 	return (0);
 }

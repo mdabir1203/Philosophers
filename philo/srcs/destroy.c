@@ -6,7 +6,7 @@
 /*   By: mabbas <mabbas@students.42wolfsburg.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 19:36:46 by mabbas            #+#    #+#             */
-/*   Updated: 2023/02/10 03:11:29 by mabbas           ###   ########.fr       */
+/*   Updated: 2023/02/10 17:28:18 by mabbas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	ft_join_thread(size_t n, t_sims *sims)
  *  resource leaks / data races **/
 void	ft_destrol_all(size_t n, t_sims *sims)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
 	while (i <= n)
