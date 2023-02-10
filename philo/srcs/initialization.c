@@ -6,7 +6,7 @@
 /*   By: mabbas <mabbas@students.42wolfsburg.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 14:40:26 by mabbas            #+#    #+#             */
-/*   Updated: 2023/02/10 18:38:07 by mabbas           ###   ########.fr       */
+/*   Updated: 2023/02/10 18:49:12 by mabbas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,16 +73,16 @@ size_t	init_philo_thread(size_t n, t_sims *sims)
 	return (1);
 }
 
-typedef size_t	(*t_init_func[4])(t_sims *);
+typedef size_t	(*t_init_func)(t_sims *);
 
 size_t	ft_init(char *argv[], size_t argc, t_sims *sims)
 {
-	size_t	t_init_func[4];
+	t_init_func	t_init_arr[4];
 
-	t_init_func[0] = check_num_of_philo;
-	t_init_func[1] = check_time_to_die;
-	t_init_func[2] = check_num_of_philo;
-	t_init_func[3] = check_time_to_sleep;
+	t_init_arr[0] = check_num_of_philo;
+	t_init_arr[1] = check_time_to_die;
+	t_init_arr[2] = check_num_of_philo;
+	t_init_arr[3] = check_time_to_sleep;
 
 	sims->num_of_philo = ft_atoi(argv[1]);
 	sims->time_to_die = ft_atoi(argv[2]);

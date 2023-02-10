@@ -6,7 +6,7 @@
 /*   By: mabbas <mabbas@students.42wolfsburg.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 09:36:13 by mabbas            #+#    #+#             */
-/*   Updated: 2023/02/10 18:20:08 by mabbas           ###   ########.fr       */
+/*   Updated: 2023/02/10 18:50:43 by mabbas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,5 +104,6 @@ void			ft_disp_death(t_philo *philo, t_sims *sims, size_t n);
 void			ft_check_end(t_sims *simulation);
 // size_t	diff(size_t pre, size_t post); Put it in static
 void			ft_sleep_time_given(size_t time);
+size_t			diff(size_t pre, size_t post);
 
 #endif

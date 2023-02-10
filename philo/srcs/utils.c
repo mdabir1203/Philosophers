@@ -6,7 +6,7 @@
 /*   By: mabbas <mabbas@students.42wolfsburg.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 01:55:38 by mabbas            #+#    #+#             */
-/*   Updated: 2023/02/10 18:12:41 by mabbas           ###   ########.fr       */
+/*   Updated: 2023/02/10 18:49:32 by mabbas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ size_t	ft_atoi(const char *str)
 	size_t		result;
 	char		*substring;
 
-	substring = skip_whitespace(str);
+	substring = skip_whitespaces(str);
 	sign = get_sign(substring, &substring);
 	result = convert_to_int(substring, sign);
 	return (result);

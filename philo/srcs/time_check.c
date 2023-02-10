@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   time_chk.c                                         :+:      :+:    :+:   */
+/*   time_check.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mabbas <mabbas@students.42wolfsburg.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 18:48:24 by mabbas            #+#    #+#             */
-/*   Updated: 2023/02/09 18:57:10 by mabbas           ###   ########.fr       */
+/*   Updated: 2023/02/10 18:50:07 by mabbas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ size_t	ft_get_time(void)
 
 /** Difference between timestamps. **/
 
-static size_t	diff(size_t pre, size_t post)
+size_t	diff(size_t pre, size_t post)
 {
 	return (pre - post);
 }
