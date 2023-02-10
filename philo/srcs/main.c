@@ -6,7 +6,7 @@
 /*   By: mabbas <mabbas@students.42wolfsburg.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 21:30:26 by mabbas            #+#    #+#             */
-/*   Updated: 2023/02/10 03:31:02 by mabbas           ###   ########.fr       */
+/*   Updated: 2023/02/10 19:41:21 by mabbas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 /** We are mallocing and error handling and refactored main **/
 
-int	main(int argc, char **argv[])
+int	main(int argc, char *argv[])
 {
 	t_sims	*sims;
 
@@ -23,7 +23,7 @@ int	main(int argc, char **argv[])
 		printf("Bazinga!! Wrong parameters given to the program!");
 		return (0);
 	}
-	if (ft_atoi(argv[1] > 200))
+	if (ft_atoi((argv[1]) > 200))
 	{
 		printf("Too many Philosophers to handle for my memory");
 		return (0);

@@ -6,14 +6,15 @@
 #    By: mabbas <mabbas@students.42wolfsburg.de>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/10 03:54:34 by mabbas            #+#    #+#              #
-#    Updated: 2023/02/10 09:47:28 by mabbas           ###   ########.fr        #
+#    Updated: 2023/02/10 19:37:24 by mabbas           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 PROG =  philo
 # PROG_B  = philo_bonus
 
-SRCS = 	srcs/destroy.c \
+SRCS = 	srcs/main.c \
+		srcs/destroy.c \
 		srcs/initialization.c \
 		srcs/utils.c \
 		srcs/routines.c \
@@ -22,7 +23,9 @@ SRCS = 	srcs/destroy.c \
 		srcs/utils_2.c \
 		srcs/init_checker.c \
 		srcs/destroy.c \
-		srcs/philosophers.c
+		srcs/philosophers_algo.c
+		
+		
 ### ....................... ####		
 RED		=	\033[1;31m
 BLUE	=	\033[1;34m
@@ -38,7 +41,6 @@ END		=	\033[0m
 ### ....................... ###
 	  
 OBJS =  ${SRCS:.c=.o}
-MAIN =  srcs/main.c
 # SRCS_B	= srcs/pipex_bonus.c srcs/utils.c srcs/utils_bonus.c
 # OBJS_B	= ${SRCS_B:.c=.o}
 # MAIN_B	= srcs/pipex_bonus.c
