@@ -6,7 +6,7 @@
 /*   By: mabbas <mabbas@students.42wolfsburg.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 02:38:00 by mabbas            #+#    #+#             */
-/*   Updated: 2023/02/10 19:28:48 by mabbas           ###   ########.fr       */
+/*   Updated: 2023/02/11 03:38:28 by mabbas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,40 +17,52 @@
  * and maintain. The ft_disp_output function has 
  * become simpler and readable as a result.
  **/
-void	ft_disp_death(t_philo *philo, t_sims *sims, size_t n)
+int	err_msg(char *message)
 {
-	printf("\x1B[35m%zu ", diff(ft_get_time(), philo->count));
-	printf("\x1B[35m%zu ", sims->philo[n].count);
-	printf("\x1B[35m%s", "🦴died🦴\n");
+	return (printf("%s%s%s\n", D_RED, message, RESET));
 }
 
-void	ft_check_dead_philo(t_philo *philo, t_sims *sims, int n)
+/** clock_monotonic_raw --> 
+ *  not affected by discontinuous jumps 
+ *  in the system time . Gives raw Hardware time **/
+int64_t	ft_get_time(void)
 {
-	if (diff(ft_get_time(), sims->philo[n].last_meal) >= \
-				philo->sims->time_to_die && philo->sims->when_dead)
-	{
-		sims->when_dead = 0;
-		ft_disp_death(philo, sims, n);
-	}
+	struct timeval	time_stamp;
+	int64_t			result;
+	t_all			all;
+
+	all = g_function(NULL);
+	gettimeofday(&time_stamp, NULL);
+	result = ((time_stamp.tv_sec * 1000) +(time_stamp.tv_usec / 1000));
+	return (result - all.details.since_started);
 }
 
-void	ft_disp_output(t_philo *philo, char *msg)
+void	disp_state(int id, char *status)
 {
-	t_sims	*sims;
-	int		n;
+	t_all	all;
 
-	pthread_mutex_lock(&philo->sims->display);
-	sims = philo->sims;
-	n = sims->num_of_philo;
-	while (n-- > 0 && sims->philo[n].count)
+	all = g_function(NULL);
+	pthread_mutex_lock(&all.result);
+	printf("%lld %d %s%s\n", ft_get_time(), id, status, RESET);
+	pthread_mutex_unlock(&all.result);
+}
+
+/** usleep modified to account for overhead of measuring time
+ * It ensure that the total wait time is close to the desired value. **/
+
+void	sleep_mod(int ms)
+{
+	struct timeval	time_stamp;
+	int64_t			current;
+	int64_t			end;
+
+	gettimeofday(&time_stamp, NULL);
+	end = time_stamp.tv_usec + (time_stamp.tv_sec * 1000000);
+	current = end;
+	usleep((ms - 10) * 1000);
+	while ((current - end) < (ms * 1000))
 	{
-		ft_check_dead_philo(philo, sims, n);
+		gettimeofday(&time_stamp, NULL);
+		current = time_stamp.tv_usec + (time_stamp.tv_sec * 1000000);
 	}
-	if (sims->when_dead)
-	{
-		printf("\033[1;34m%zu ", diff(ft_get_time(), philo->sims->begin));
-		printf("\033[1;33m%zu ", philo->count);
-		printf("\033[1;32m%s\n", msg);
-	}
-	pthread_mutex_unlock(&philo->sims->display);
 }
