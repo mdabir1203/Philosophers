@@ -6,25 +6,19 @@
 #    By: mabbas <mabbas@students.42wolfsburg.de>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/10 03:54:34 by mabbas            #+#    #+#              #
-#    Updated: 2023/02/10 19:37:24 by mabbas           ###   ########.fr        #
+#    Updated: 2023/02/11 04:35:27 by mabbas           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 PROG =  philo
-# PROG_B  = philo_bonus
 
-SRCS = 	srcs/main.c \
-		srcs/destroy.c \
+SRCS = 	srcs/mem_collector.c \
 		srcs/initialization.c \
+		srcs/monitors.c \
+		srcs/philo.c \
 		srcs/utils.c \
-		srcs/routines.c \
-		srcs/time_check.c \
-		srcs/utils.c \
-		srcs/utils_2.c \
-		srcs/init_checker.c \
-		srcs/destroy.c \
-		srcs/philosophers_algo.c
-		
+		srcs/utils_2.c
+
 		
 ### ....................... ####		
 RED		=	\033[1;31m
@@ -41,9 +35,6 @@ END		=	\033[0m
 ### ....................... ###
 	  
 OBJS =  ${SRCS:.c=.o}
-# SRCS_B	= srcs/pipex_bonus.c srcs/utils.c srcs/utils_bonus.c
-# OBJS_B	= ${SRCS_B:.c=.o}
-# MAIN_B	= srcs/pipex_bonus.c
 
 HEADER	= -Iincludes
 CC 		= gcc
@@ -58,15 +49,6 @@ ${PROG}:	${OBJS}
 	@echo "\033[33m----Compiling Philos---"
 	@$(CC) ${OBJS}  -o ${PROG}
 					@echo "\033[32mPhilo Compiled! (\033[31m\033[32m_\033[31m\033[32m)\n"
-
-
-# bonus:		${PROG_B}
-
-# ${PROG_B}:	${OBJS_B}
-# 					@echo "\033[33m----Compiling lib----"
-# 					@make re -C ./lib/libft
-# 					@$(CC) ${OBJS_B} -Llib/libft -lft -o pipex
-# 					@echo "\033[32mPipex Bonus Compiled!(\033[31m\033[32m_\033[31m\033[32m)\n"
 
 clean:
 	@echo "\n\033[31mTrashing the objects ! ⌐(ಠ۾ಠ)¬\n"

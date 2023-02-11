@@ -1,41 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_checker.c                                     :+:      :+:    :+:   */
+/*   mem_collector.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mabbas <mabbas@students.42wolfsburg.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/09 20:49:19 by mabbas            #+#    #+#             */
-/*   Updated: 2023/02/09 21:20:33 by mabbas           ###   ########.fr       */
+/*   Created: 2023/02/11 01:54:13 by mabbas            #+#    #+#             */
+/*   Updated: 2023/02/11 03:15:37 by mabbas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/philo.h"
 
-size_t	check_num_of_philo(t_sims *sims)
-{
-	if (sims->num_of_philo <= 0)
-		return (SLEEP);
-	return (0);
-}
+/** a simple mechanism for storing and retrieving a 
+ *  global variable of type t_all that is shared across 
+ *  all calls to the function **/
 
-size_t	check_time_to_die(t_sims *sims)
+t_all	g_function(t_all *fill)
 {
-	if (sims->time_to_die <= 0)
-		return (THINK);
-	return (0);
-}
+	static t_all	var;
 
-size_t	check_time_to_eat(t_sims *sims)
-{
-	if (sims->time_to_eat <= 0)
-		return (DEAD);
-	return (0);
-}
-
-size_t	check_time_to_sleep(t_sims *sims)
-{
-	if (sims->time_to_sleep <= 0)
-		return (DONE);
-	return (0);
+	if (fill)
+		var = *fill;
+	return (var);
 }
